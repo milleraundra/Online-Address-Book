@@ -7,28 +7,48 @@
 
 	<body>
 		<div class="container">
-			<h1>Search Results</h1>
+			<div class="row header">
+				<div class="col-sm-6">
+					<h1>Online Address Book</h1>
+				</div>
+				<div class="col-sm-6">
+					<div class="search">
+						<form class="" action="/search" method="post">
+							<!-- <label for="search">Search Contacts:</label> -->
+							<input type="text" name="search" value="">
+							<button type="submit" name="button">Search Contacts</button>
+						</form>
+					</div>
+				</div>
+			</div>
+<!-- Search Results -->
+			<div class="row">
+				<div class="col-sm-5 col-sm-offset-1">
+					<h2>Search Results</h2>
 
-			{% if matching_contacts is not empty %}
+					{% if matching_contacts is not empty %}
 
-				{% for contact in matching_contacts%}
-					<p>Name: {{ contact.fullName() }}</p>
-					<ul>
-						<li>Phone: {{ contact.getPhone() }}</li>
-						<li>Address: {{ contact.address }}</li>
-					</ul>
-					<p></p>
-					<p>Address:</p>
-				{% endfor %}
-			{% else %}
-				<h3>No Contacts Found</h3>
-				<p>Please Search Again</p>
-			{% endif %}
+						{% for contact in matching_contacts%}
+							<p>Name: {{ contact.fullName() }}</p>
+							<ul>
+								<li>Phone: {{ contact.getPhone() }}</li>
+								<li>Address: {{ contact.getStreet() }}, {{ contact.getCity() }} {{ contact.getState() }}</li>
+							</ul>
+							<p></p>
+							<p>Address:</p>
+						{% endfor %}
+					{% else %}
+						<h3>No Contacts Found</h3>
+						<p>Please Search Again</p>
+					{% endif %}
 
 
-			<form class="" action="/" method="get">
-				<button type="submit">See All Contacts</button>
-			</form>
+					<form class="" action="/" method="get">
+						<button type="submit">See All Contacts</button>
+					</form>
+				</div>
+			</div>
+
 		</div>
 	</body>
 </html>

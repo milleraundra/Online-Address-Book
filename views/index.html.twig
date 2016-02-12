@@ -25,62 +25,65 @@
 			</div>
 
 <!--Create new contacts -->
-			<h2>Create a New Contact:</h2>
-			<form action="/create_contact" method="post">
-				<div class="form-group">
-					<label for="first_name">First Name:</label>
-					<input type="text" name="first_name">
-				</div>
-				<div class="form-group">
-					<label for="last_name">Last Name:</label>
-					<input type="text" name="last_name">
-				</div>
-				<div class="form-group">
-					<label for="phone">Phone Number:</label>
-					<input type="number" name="phone">
+			<div class="row">
+				<div class="col-sm-5 col-sm-offset-1">
+					<h2>Create New Contact:</h2>
+					<form action="/create_contact" method="post">
+						<div class="form-group">
+							<label for="first_name">First Name:</label>
+							<input type="text" name="first_name">
+						</div>
+						<div class="form-group">
+							<label for="last_name">Last Name:</label>
+							<input type="text" name="last_name">
+						</div>
+						<div class="form-group">
+							<label for="phone">Phone Number:</label>
+							<input type="number" name="phone">
+						</div>
+
+						<h3>Address:</h3>
+						<div class="form-group">
+							<label for="street">Street:</label>
+							<input type="text" name="street">
+						</div>
+						<div class="form-group">
+							<label for="city">City:</label>
+							<input type="text" name="city">
+						</div>
+						<div class="form-group">
+							<label for="state">State:</label>
+							<input type="text" name="state">
+						</div>
+						<button type="submit">Create Contact</button>
+					</form>
 				</div>
 
-				<h3>Address:</h3>
-				<div class="form-group">
-					<label for="street">Street:</label>
-					<input type="text" name="street">
-				</div>
-				<div class="form-group">
-					<label for="city">City:</label>
-					<input type="text" name="city">
-				</div>
-				<div class="form-group">
-					<label for="state">State:</label>
-					<input type="text" name="state">
-				</div>		
-				<button type="submit">Create Contact</button>
-			</form>
+	<!-- Display contacts-->
+				<div class="col-sm-5">
+					<h2>All Contacts:</h2>
+					{% if contacts is not empty %}
+					<ul>
+						{% for contact in contacts %}
+						<div class="singleContact">
+							<li><p>{{ contact.fullName() }}</p>
+								<ul>
+									<li>Phone: {{ contact.getPhone() }}</li>
+									<li>Address: {{ contact.getStreet() }}, {{ contact.getCity() }} {{ contact.getState() }}</li>
+								</ul>
+							</li>
+						</div>
+						{% endfor %}
+					</ul>
 
-<!-- Display contacts-->
-			{% if contacts is not empty %}
-			<ul>
-				{% for contact in contacts %}
-				<div class="singleContact">
-					<li><p>{{ contact.fullName() }}</p>
-						<ul>
-							<li>Phone: {{ contact.getPhone() }}</li>
-							<li>Address: {{ contact.getStreet() }}, {{ contact.getCity() }} {{ contact.getState() }}</li>
-						</ul>
-					</li>
+					<form class="" action="/delete_all" method="post">
+						<button type="submit">DELETE ALL CONTACTS</button>
+					</form>
+					{% else %}
+					<p id="notice">You have no contacts.</p>
+				 	{% endif %}
 				</div>
-				{% endfor %}
-			</ul>
-
-			<form class="" action="/delete_all" method="post">
-				<button type="submit">DELETE ALL CONTACTS</button>
-			</form>
-			{% else %}
-			<p id="notice">You have no contacts.</p>
-		 	{% endif %}
-
+			</div>
 		</div>
-
 	</body>
-
-
 </html>

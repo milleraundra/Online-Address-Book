@@ -35,15 +35,20 @@
 		$search = $_POST['search'];
 		$all_contacts = Contact::getAll();
         $matching_contacts = array();
-        foreach ($all_contacts as $contact) {
-            $search = strtolower($search);
-            $contact_name = $contact->fullName();
-            $contact_name = strtolower($contact_name);
-            if (strpos($contact_name, $search) !== false) {
-                array_push($matching_contacts, $contact);
-            }
-        }
-        return $app['twig']->render('/search_results', array('matching_contacts'=> $matching_contacts));
+		if ($search == NULL) {
+			return $app['twig']->render('/index.html.twig', array('contacts'=> $all_contacts));
+
+		} else {
+			foreach ($all_contacts as $contact) {
+	            $search = strtolower($search);
+	            $contact_name = $contact->fullName();
+	            $contact_name = strtolower($contact_name);
+	            if (strpos($contact_name, $search) !== false) {
+	                array_push($matching_contacts, $contact);
+	            }
+	        }
+	        return $app['twig']->render('/search_results', array('matching_contacts'=> $matching_contacts));
+		}
 	});
 
 	return $app;

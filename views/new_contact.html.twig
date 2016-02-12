@@ -8,18 +8,37 @@
 
 	<body>
 		<div class="container">
-			<h1>New Contact Added:</h1>
+			<div class="row header">
+				<div class="col-sm-6">
+					<h1>Online Address Book</h1>
+				</div>
+				<div class="col-sm-6">
+					<div class="search">
+						<form class="" action="/search" method="post">
+							<!-- <label for="search">Search Contacts:</label> -->
+							<input type="text" name="search" value="">
+							<button type="submit" name="button">Search Contacts</button>
+						</form>
+					</div>
+				</div>
+			</div>
+<!-- new contact notification -->
+			<div class="row">
+				<div class="col-sm-5 col-sm-offset-1">
+					<h2>New Contact Added:</h2>
 
-			<p>Name: {{ newContact.fullName() }}</p>
-			<p>Phone: {{ newContact.getPhone() }}</p>
-			<p>Address:</p>
-			<ul>
-				<li>{{ newContact.getStreet() }}, {{ newContact.getCity() }} {{ newContact.getState() }}</li>
-			</ul>
+					<p>Name: {{ newContact.fullName() }}</p>
+					<p>Phone: {{ newContact.getPhone() }}</p>
+					<p>Address:</p>
+					<ul>
+						<li>{{ newContact.getStreet() }}, {{ newContact.getCity() }} {{ newContact.getState() }}</li>
+					</ul>
 
-			<form class="" action="/" method="get">
-				<button type="submit">See All Contacts</button>
-			</form>
+					<form class="" action="/" method="get">
+						<button type="submit">See All Contacts</button>
+					</form>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
