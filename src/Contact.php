@@ -56,12 +56,17 @@ class Contact {
 
 	function save()
 	{
-		array_push($_SESSION['list_of_addresses'], $this);
+		array_push($_SESSION['list_of_contacts'], $this);
 	}
 
 	function getAll()
 	{
-		return $_SESSION['list_of_addresses'];
+		return $_SESSION['list_of_contacts'];
+	}
+
+	function deleteAll()
+	{
+		$_SESSION['list_of_contacts'] = array();
 	}
 
 }
