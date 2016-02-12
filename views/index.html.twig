@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Address Book</title>
+	</head>
+
+	<body>
+		<div class="container">
+			<h1>Address Book</h1>
+<!--Create new contacts -->
+			<h2>Create a New Contact:</h2>
+			<form action="/create_contact" type="post">
+				<label for="first_name">First Name:</label>
+				<input type="text" name="first_name">
+				<label for="last_name">Last Name:</label>
+				<input type="text" name="last_name">
+				<label for="phone">Phone Number:</label>
+				<input type="number" name="phone">
+				<h3>Address:</h3>
+					<label for="street">Street:</label>
+					<input type="text" name="street">
+					<label for="city">City:</label>
+					<input type="text" name="city">
+					<label for="state">State:</label>
+					<input type="text" name="state">
+				<button type="submit">Create Contact</button>
+			</form>
+
+
+<!-- Display contacts-->
+
+
+		</div>
+		
+	</body>
+
+
+</html>
