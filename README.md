@@ -13,6 +13,7 @@ The application was developed using PHP, as well as Silex and Twig.
 ## Setup/Installation Requirements
 
 To work properly, this application requires:
+
 1. Composer.
 
 2. Twig and Silex installation.
