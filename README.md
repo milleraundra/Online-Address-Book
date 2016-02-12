@@ -14,8 +14,11 @@ The application was developed using PHP, as well as Silex and Twig.
 
 To work properly, this application requires:
 1. Composer.
+
 2. Twig and Silex installation.
+
 3. Local server.
+
 Setup instructions:
 * Clone this repository.
 * Go to the root directory.
