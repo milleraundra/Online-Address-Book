@@ -23,6 +23,7 @@
 		$contact = new Contact($_POST['first_name'], $_POST['last_name'], $_POST['phone'], $address);
 		$contact->save();
 		var_dump($_SESSION['list_of_contacts']);
+		$app['debug'] = true;
 		return $app['twig']->render('new_contact.html.twig', array('newContact'=> $contact));
 	});
 
