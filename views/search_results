@@ -1,21 +1,30 @@
-
 <html>
 	<head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 		<link rel="stylesheet" href="styles.css" type="text/css">
-		<title>New Contact Added</title>
+		<title>Address Book: Search</title>
 	</head>
 
 	<body>
 		<div class="container">
-			<h1>New Contact Added:</h1>
+			<h1>Search Results</h1>
 
-			<p>Name: {{ newContact.fullName() }}</p>
-			<p>Phone: {{ newContact.getPhone() }}</p>
-			<p>Address:</p>
-			<ul>
-				<li>{{ newContact.getStreet() }}, {{ newContact.getCity() }} {{ newContact.getState() }}</li>
-			</ul>
+			{% if matching_contacts is not empty %}
+
+				{% for contact in matching_contacts%}
+					<p>Name: {{ contact.fullName() }}</p>
+					<ul>
+						<li>Phone: {{ contact.getPhone() }}</li>
+						<li>Address: {{ contact.address }}</li>
+					</ul>
+					<p></p>
+					<p>Address:</p>
+				{% endfor %}
+			{% else %}
+				<h3>No Contacts Found</h3>
+				<p>Please Search Again</p>
+			{% endif %}
+
 
 			<form class="" action="/" method="get">
 				<button type="submit">See All Contacts</button>
