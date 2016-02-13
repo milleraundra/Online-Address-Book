@@ -47,7 +47,7 @@
 	                array_push($matching_contacts, $contact);
 	            }
 	        }
-	        return $app['twig']->render('/search_results', array('matching_contacts'=> $matching_contacts));
+	        return $app['twig']->render('/search_results.html.twig', array('matching_contacts'=> $matching_contacts));
 		}
 	});
 

@@ -3,6 +3,7 @@
 
 	<head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="styles.css" type="text/css">
 		<title>Address Book</title>
 	</head>
@@ -26,7 +27,7 @@
 
 <!--Create new contacts -->
 			<div class="row">
-				<div class="col-sm-5 col-sm-offset-1">
+				<div id="contactForm" class="col-sm-5 col-sm-offset-1">
 					<h2>Create New Contact:</h2>
 					<form action="/create_contact" method="post">
 						<div class="form-group">
@@ -60,7 +61,7 @@
 				</div>
 
 	<!-- Display contacts-->
-				<div class="col-sm-5">
+				<div id="contactList" class="col-sm-5">
 					<h2>All Contacts:</h2>
 					{% if contacts is not empty %}
 					<ul>

@@ -1,10 +1,13 @@
 body {
     background-color: #fff;
-    font-size: 1.5em;
+    font-size: 1.7em;
+    font-family: 'Lato', sans-serif;
+
 }
 
 .header {
     padding: 30px 30px 15px 0px;
+    background-color: #6698FF;
 }
 
 .header form {
@@ -15,12 +18,31 @@ body {
     text-align: right;
 }
 
-.singleContact {
+h2 {
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
+#contactForm {
+    background-color: #BFBEB8;
+}
+
+#contactList {
+    background-color: #E5E3DD;
+}
+
+#contactForm, #contactList {
+    min-height: 500px;
     padding: 15px;
+}
+
+.singleContact {
+    padding: 20px;
 }
 
 .singleContact p {
     font-weight: bold;
+    font-size: 1.3em;
 }
 
 .search {
